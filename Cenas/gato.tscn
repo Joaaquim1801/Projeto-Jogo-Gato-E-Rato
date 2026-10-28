@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dgetyh8q7fumt"]
+
+[ext_resource type="Script" uid="uid://bhjfmphe6750d" path="res://Scripts/gato.gd" id="1_20bqc"]
+[ext_resource type="Texture2D" uid="uid://belvjppdiqxrf" path="res://Sprites/gatoPlaceholder.png" id="1_24irp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha50l"]
+size = Vector2(36, 35)
+
+[node name="Gato" type="CharacterBody2D" unique_id=1899064660]
+position = Vector2(1, 0)
+collision_layer = 4
+script = ExtResource("1_20bqc")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=257759349]
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(0.25435588, 0.23860677)
+texture = ExtResource("1_24irp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942735418]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ha50l")
