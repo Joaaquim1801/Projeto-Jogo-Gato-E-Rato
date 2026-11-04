@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://dvay4no1hv6xw"]
 
+[ext_resource type="Script" uid="uid://cj4qhq0h07d0e" path="res://Cenas/fase_1.gd" id="1_ruij7"]
 [ext_resource type="Texture2D" uid="uid://dil6r1bxvr0nf" path="res://Tiles/tilesplaceholder.png" id="1_x3hk2"]
 [ext_resource type="PackedScene" uid="uid://dgetyh8q7fumt" path="res://Cenas/gato.tscn" id="2_74bqr"]
+[ext_resource type="PackedScene" uid="uid://b0y0fqj0y7m3r" path="res://Cenas/rato.tscn" id="4_lb8y5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74bqr"]
 texture = ExtResource("1_x3hk2")
@@ -2143,6 +2145,7 @@ sources/0 = SubResource("TileSetAtlasSource_74bqr")
 [node name="Fases" type="Node" parent="." unique_id=402466907]
 
 [node name="Fase1" type="Node" parent="Fases" unique_id=860276188]
+script = ExtResource("1_ruij7")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Fases/Fase1" unique_id=1805818296]
 position = Vector2(-1, 7)
@@ -2153,3 +2156,6 @@ tile_set = SubResource("TileSet_ha50l")
 
 [node name="Gato" parent="Fases/Fase1" unique_id=1899064660 instance=ExtResource("2_74bqr")]
 position = Vector2(-216, 185)
+
+[node name="Rato" parent="Fases/Fase1" unique_id=1767134814 instance=ExtResource("4_lb8y5")]
+position = Vector2(-69, 64)

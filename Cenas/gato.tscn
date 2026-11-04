@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://belvjppdiqxrf" path="res://Sprites/gatoPlaceholder.png" id="1_24irp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha50l"]
-size = Vector2(36, 35)
+size = Vector2(35.5, 34.5)
 
 [node name="Gato" type="CharacterBody2D" unique_id=1899064660]
 position = Vector2(1, 0)
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_20bqc")
 metadata/_edit_group_ = true
 
@@ -18,5 +19,4 @@ scale = Vector2(0.25435588, 0.23860677)
 texture = ExtResource("1_24irp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942735418]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ha50l")

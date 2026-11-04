@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b0y0fqj0y7m3r"]
+
+[ext_resource type="Script" uid="uid://xvtgmk0qn73o" path="res://Cenas/rato.gd" id="1_v31ub"]
+[ext_resource type="Texture2D" uid="uid://d3hgwtgsf2di2" path="res://Sprites/ratoPlaceholder.png" id="2_v31ub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha50l"]
+size = Vector2(35.5, 34.5)
+
+[node name="Rato" type="CharacterBody2D" unique_id=1899064660]
+position = Vector2(1, 0)
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_v31ub")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=257759349]
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(0.25435588, 0.23860677)
+texture = ExtResource("2_v31ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942735418]
+shape = SubResource("RectangleShape2D_ha50l")
