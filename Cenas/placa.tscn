@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://df5lc0wkfygwj"]
+
+[ext_resource type="Script" uid="uid://tbj1xslbf56e" path="res://Scripts/placa.gd" id="1_ro3fh"]
+[ext_resource type="Texture2D" uid="uid://bdsgss6b44efy" path="res://Sprites/Botao.png" id="1_vnsmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giqkd"]
+size = Vector2(19, 16)
+
+[node name="Placa" type="Area2D" unique_id=399057834]
+collision_mask = 6
+script = ExtResource("1_ro3fh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=204450084]
+position = Vector2(2.3841858e-07, 0)
+scale = Vector2(1.5357141, 1.7500001)
+texture = ExtResource("1_vnsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1888141332]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_giqkd")

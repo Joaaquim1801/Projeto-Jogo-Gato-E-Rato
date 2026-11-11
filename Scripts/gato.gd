@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 const velocidade = 300.0
 const pulo = -500.0
-
 var is_active = false 
 
 func _physics_process(delta: float) -> void:

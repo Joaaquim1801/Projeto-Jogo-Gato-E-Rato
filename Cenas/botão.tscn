@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d22k5xg8ef3jo"]
+
+[ext_resource type="Script" uid="uid://cyqhbglsuodfy" path="res://Scripts/botão.gd" id="1_5qf8l"]
+[ext_resource type="Texture2D" uid="uid://cwftqh86smhk2" path="res://Sprites/botao2.png" id="2_jaxjv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gydl4"]
+atlas = ExtResource("2_jaxjv")
+region = Rect2(1332, 0, 666, 1111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rux0m"]
+atlas = ExtResource("2_jaxjv")
+region = Rect2(666, 0, 666, 1111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec1p4"]
+atlas = ExtResource("2_jaxjv")
+region = Rect2(1332, 0, 666, 1111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha50l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gydl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rux0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec1p4")
+}],
+"loop": 0,
+"name": &"ativarBotao",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ha50l"]
+radius = 36.05551
+
+[node name="Botão" type="Area2D" unique_id=1605805483]
+z_index = -1
+collision_mask = 6
+script = ExtResource("1_5qf8l")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1981037030]
+position = Vector2(-1.0000005, -3)
+scale = Vector2(0.04723161, 0.044729576)
+sprite_frames = SubResource("SpriteFrames_ha50l")
+animation = &"ativarBotao"
+frame = 2
+frame_progress = 0.93095994
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173460020]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_ha50l")

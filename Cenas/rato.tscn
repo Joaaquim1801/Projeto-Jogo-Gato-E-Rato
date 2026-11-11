@@ -1,22 +1,123 @@
 [gd_scene format=3 uid="uid://b0y0fqj0y7m3r"]
 
-[ext_resource type="Script" uid="uid://xvtgmk0qn73o" path="res://Cenas/rato.gd" id="1_v31ub"]
-[ext_resource type="Texture2D" uid="uid://d3hgwtgsf2di2" path="res://Sprites/ratoPlaceholder.png" id="2_v31ub"]
+[ext_resource type="Script" uid="uid://xvtgmk0qn73o" path="res://Scripts/rato.gd" id="1_v31ub"]
+[ext_resource type="Texture2D" uid="uid://bduhbxy7y2gs7" path="res://Sprites/Rat_Sprites.png" id="3_6g1q8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v31ub"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pghug"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vexmj"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qggwx"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jer5d"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmyuq"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu7en"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ida4"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2au0d"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7ooh"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8bxr"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha50l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v31ub")
+}],
+"loop": 1,
+"name": &"fallingRat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pghug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vexmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qggwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jer5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmyuq")
+}],
+"loop": 1,
+"name": &"idleRat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu7en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ida4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2au0d")
+}],
+"loop": 0,
+"name": &"jumpingRat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7ooh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8bxr")
+}],
+"loop": 1,
+"name": &"runningRat",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha50l"]
-size = Vector2(35.5, 34.5)
+size = Vector2(36.5, 21)
 
 [node name="Rato" type="CharacterBody2D" unique_id=1899064660]
-position = Vector2(1, 0)
-collision_layer = 4
-collision_mask = 5
+position = Vector2(0, -4)
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_v31ub")
-metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=257759349]
-position = Vector2(0, -9.536743e-07)
-scale = Vector2(0.25435588, 0.23860677)
-texture = ExtResource("2_v31ub")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=846512615]
+position = Vector2(0, 1)
+scale = Vector2(2.3, 2.3)
+sprite_frames = SubResource("SpriteFrames_ha50l")
+animation = &"jumpingRat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942735418]
+position = Vector2(0.25, 27.5)
 shape = SubResource("RectangleShape2D_ha50l")

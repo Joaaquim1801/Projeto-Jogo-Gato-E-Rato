@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dx8521rgl0yih"]
+
+[ext_resource type="Script" uid="uid://cdhhfjedpi604" path="res://Scripts/alavanca.gd" id="1_146cw"]
+[ext_resource type="Texture2D" uid="uid://dpi3p55oeit7d" path="res://Sprites/Alavanca2.png" id="2_28nmg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41ryc"]
+radius = 52.009613
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2p4l"]
+atlas = ExtResource("2_28nmg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr2kg"]
+atlas = ExtResource("2_28nmg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj4ed"]
+atlas = ExtResource("2_28nmg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l427g"]
+atlas = ExtResource("2_28nmg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ffsr"]
+atlas = ExtResource("2_28nmg")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha50l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2p4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr2kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj4ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l427g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ffsr")
+}],
+"loop": 0,
+"name": &"alavancaAtivar",
+"speed": 5.0
+}]
+
+[node name="Alavanca" type="Area2D" unique_id=390023662]
+z_index = -1
+collision_mask = 6
+script = ExtResource("1_146cw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878772008]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_41ryc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=693334704]
+sprite_frames = SubResource("SpriteFrames_ha50l")
+animation = &"alavancaAtivar"

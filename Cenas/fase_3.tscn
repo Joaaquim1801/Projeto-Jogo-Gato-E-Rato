@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://4boqv1w7pws1"]
+
+[sub_resource type="TileSet" id="TileSet_7bkjt"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
+
+[node name="Fase3" type="Node2D" unique_id=2046033372]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=936656287]
+position = Vector2(-1, 7)
+tile_set = SubResource("TileSet_7bkjt")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=637127782]
