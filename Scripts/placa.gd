@@ -1,28 +1,30 @@
 extends Area2D
 
-signal placa_ativada
-var personagens_perto = []
-var ativada = false
+signal pressionada
+signal liberada
 
+var personagens_em_cima = []
 
 func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
-func _process(_delta):
-	if personagens_perto.size() > 0 and Input.is_action_just_pressed("interagir"):
-		ativar_placa()
 
 func _on_body_entered(body):
-	if body.name == "Gato" or body.name == "Rato":
-		if not personagens_perto.has(body):
-			personagens_perto.append(body)
+	if body.name != "Gato" and body.name != "Rato":
+		return
+	
+	if personagens_em_cima.has(body):
+		return
+	
+	personagens_em_cima.append(body)
+	
+	if personagens_em_cima.size() == 1:
+		pressionada.emit()
+
 
 func _on_body_exited(body):
-	personagens_perto.erase(body)
-
-func ativar_placa():
-	if ativada:
-		return
-	ativada = true
-	placa_ativada.emit()
+	personagens_em_cima.erase(body)
+	
+	if personagens_em_cima.is_empty():
+		liberada.emit()

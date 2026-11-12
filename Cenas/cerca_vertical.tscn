@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bhnvw3swn7nkr"]
+
+[ext_resource type="Texture2D" uid="uid://d8xjjr1m6rbm" path="res://Sprites/cerca.png" id="1_kfcil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eky1"]
+size = Vector2(16, 197)
+
+[node name="CercaVertical" type="AnimatableBody2D" unique_id=915380024]
+z_index = -1
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=631593563]
+position = Vector2(1.8544745e-06, -17.542217)
+rotation = 1.5707964
+scale = Vector2(0.46835944, 0.053717814)
+texture = ExtResource("1_kfcil")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1835405754]
+position = Vector2(0, -18.5)
+shape = SubResource("RectangleShape2D_1eky1")

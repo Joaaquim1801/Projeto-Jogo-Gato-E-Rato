@@ -37,7 +37,7 @@ tile_set = SubResource("TileSet_ha50l")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=492208404]
 
 [node name="Gato" parent="." unique_id=1899064660 instance=ExtResource("3_vwldl")]
-position = Vector2(-310, 195)
+position = Vector2(-320, 226)
 
 [node name="Rato" parent="." unique_id=231930568 instance=ExtResource("4_ahbfq")]
 position = Vector2(-464, 225)

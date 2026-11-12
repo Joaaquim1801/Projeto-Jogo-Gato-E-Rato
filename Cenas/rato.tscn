@@ -111,6 +111,7 @@ position = Vector2(0, -4)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_v31ub")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=846512615]
 position = Vector2(0, 1)

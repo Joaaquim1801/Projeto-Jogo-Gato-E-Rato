@@ -3,6 +3,8 @@ extends Node
 const FASES = [
 	preload("res://Cenas/fase_1.tscn"),
 	preload("res://Cenas/fase_2.tscn"),
+	preload("res://Cenas/fase_3.tscn"),
+	preload("res://Cenas/fase_4.tscn")
 ]
 @onready var fase_atual_node = $FaseAtual
 var numero_fase = 0
