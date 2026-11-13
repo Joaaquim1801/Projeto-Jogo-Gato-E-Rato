@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://4boqv1w7pws1"]
 
 [ext_resource type="Texture2D" uid="uid://1gu3d1sfwg7t" path="res://Tiles/Bloco_1.png" id="1_5q4kw"]
-[ext_resource type="Script" uid="uid://cdq8iyhevy6mm" path="res://Cenas/fase_3.gd" id="1_pgpv6"]
+[ext_resource type="Script" uid="uid://cdq8iyhevy6mm" path="res://Scripts/fase_3.gd" id="1_pgpv6"]
 [ext_resource type="Texture2D" uid="uid://5mw37q82pa51" path="res://Tiles/Bloco_2.png" id="2_7bkjt"]
 [ext_resource type="PackedScene" uid="uid://dgetyh8q7fumt" path="res://Cenas/gato.tscn" id="3_mtfx8"]
 [ext_resource type="PackedScene" uid="uid://b0y0fqj0y7m3r" path="res://Cenas/rato.tscn" id="4_pgpv6"]
