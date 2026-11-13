@@ -8,10 +8,17 @@ extends CharacterBody2D
 @export var sufixo_animacao = "Cat"
 
 var is_active = false
+# Quando true, o personagem é carregado por outro e não se move sozinho
+var colado = false
 
 @onready var animacao = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
+	if colado:
+		velocity = Vector2.ZERO
+		animacao.play("idle" + sufixo_animacao)
+		return
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -40,3 +47,9 @@ func atualizar_animacao():
 	# Vira o sprite conforme a direção
 	if velocity.x != 0:
 		animacao.flip_h = velocity.x < 0
+
+# Centro e tamanho da colisão em coordenadas globais (o shape não fica na origem do nó)
+func retangulo_colisao() -> Rect2:
+	var forma = $CollisionShape2D
+	var tamanho = forma.shape.size * forma.global_scale
+	return Rect2(forma.global_position - tamanho / 2, tamanho)
