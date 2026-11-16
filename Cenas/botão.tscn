@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyqhbglsuodfy" path="res://Scripts/botão.gd" id="1_5qf8l"]
 [ext_resource type="Texture2D" uid="uid://cwftqh86smhk2" path="res://Sprites/botao2.png" id="2_jaxjv"]
+[ext_resource type="AudioStream" uid="uid://c4q4snkyup7xy" path="res://SFX/som_botao.wav" id="3_jaxjv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gydl4"]
 atlas = ExtResource("2_jaxjv")
@@ -52,3 +53,6 @@ frame_progress = 0.93095994
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173460020]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_ha50l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2042869576]
+stream = ExtResource("3_jaxjv")

@@ -27,3 +27,4 @@ func ativar_botao():
 	ativado = true
 	botao_ativado.emit()
 	$AnimatedSprite2D.play("ativarBotao")
+	$AudioStreamPlayer.playing = true

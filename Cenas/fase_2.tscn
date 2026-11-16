@@ -6,11 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://1gu3d1sfwg7t" path="res://Tiles/Bloco_1.png" id="5_jf64f"]
 [ext_resource type="Texture2D" uid="uid://5mw37q82pa51" path="res://Tiles/Bloco_2.png" id="6_0v05o"]
 [ext_resource type="Texture2D" uid="uid://34xvpid6fc1e" path="res://Tiles/tiles_sewage.png" id="6_jf64f"]
+[ext_resource type="Script" uid="uid://bohf4uao3et1b" path="res://Scripts/area_agua.gd" id="6_ueqr2"]
 [ext_resource type="PackedScene" uid="uid://df5lc0wkfygwj" path="res://Cenas/placa.tscn" id="7_0v05o"]
+[ext_resource type="Script" uid="uid://bok53xu7ofbt7" path="res://Scripts/area_escura.gd" id="7_imh4f"]
 [ext_resource type="PackedScene" uid="uid://bxy1u2hoxg20n" path="res://Cenas/proxima_fase.tscn" id="8_ev8p6"]
 [ext_resource type="PackedScene" uid="uid://d22k5xg8ef3jo" path="res://Cenas/botão.tscn" id="9_o7qfa"]
 [ext_resource type="Texture2D" uid="uid://c6olfahs1rlx" path="res://Sprites/Lampada_acesa.png" id="10_41b7u"]
 [ext_resource type="Texture2D" uid="uid://cpoxsfkk1x3pe" path="res://Sprites/Lampada_apagada.png" id="11_csihj"]
+[ext_resource type="AudioStream" uid="uid://bqi110yn3hogw" path="res://SFX/Agua_esvaziando.wav" id="12_41b7u"]
+[ext_resource type="AudioStream" uid="uid://ct5mwywskbasn" path="res://SFX/Agua_splash.wav" id="13_csihj"]
+[ext_resource type="Script" uid="uid://dwb7ej2kj47yj" path="res://Scripts/area_medo_rato.gd" id="16_wno4v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7qfa"]
 texture = ExtResource("5_jf64f")
@@ -30,16 +35,16 @@ sources/1 = SubResource("TileSetAtlasSource_o7qfa")
 sources/2 = SubResource("TileSetAtlasSource_41b7u")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha50l"]
-size = Vector2(416, 144)
+size = Vector2(399, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_giqkd"]
-size = Vector2(401, 176)
+size = Vector2(371, 176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ev8p6"]
-size = Vector2(370.5, 176)
+size = Vector2(6.625, 198.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80ir6"]
-size = Vector2(386, 177.25)
+size = Vector2(11, 177.25)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csihj"]
 texture = ExtResource("6_jf64f")
@@ -145,6 +150,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueqr2"]
+size = Vector2(403, 176)
+
 [node name="Fase2" type="Node2D" unique_id=818607348]
 script = ExtResource("1_c1qc7")
 
@@ -164,17 +172,19 @@ tile_set = SubResource("TileSet_0v05o")
 [node name="AreaAgua" type="Area2D" parent="." unique_id=1332157265]
 collision_layer = 16
 collision_mask = 4
+script = ExtResource("6_ueqr2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAgua" unique_id=47621924]
-position = Vector2(-226, 156)
+position = Vector2(-217.5, 237.5)
 shape = SubResource("RectangleShape2D_ha50l")
 
 [node name="AreaEscura" type="Area2D" parent="." unique_id=984899906]
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("7_imh4f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEscura" unique_id=1724971649]
-position = Vector2(375.5, 128)
+position = Vector2(390.5, 128)
 shape = SubResource("RectangleShape2D_giqkd")
 
 [node name="ColorRect" type="ColorRect" parent="AreaEscura" unique_id=1086509505]
@@ -195,7 +205,7 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BarreiraGato" unique_id=797972964]
-position = Vector2(-232, 132)
+position = Vector2(-421, 116)
 shape = SubResource("RectangleShape2D_ev8p6")
 
 [node name="BarreiraRato" type="StaticBody2D" parent="." unique_id=202940609]
@@ -203,7 +213,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BarreiraRato" unique_id=615031894]
-position = Vector2(391, 126.625)
+position = Vector2(203.5, 126.625)
 shape = SubResource("RectangleShape2D_80ir6")
 
 [node name="TileAgua" type="TileMapLayer" parent="." unique_id=225453025]
@@ -219,6 +229,21 @@ scale = Vector2(1.7981122, 1.4807693)
 sprite_frames = SubResource("SpriteFrames_ha50l")
 animation = &"lampada_apagada"
 autoplay = "lampada_apagada"
+
+[node name="AguaEsvaziando" type="AudioStreamPlayer" parent="." unique_id=773410622]
+stream = ExtResource("12_41b7u")
+
+[node name="AguaEnchendo" type="AudioStreamPlayer" parent="." unique_id=624241119]
+stream = ExtResource("13_csihj")
+
+[node name="AreaMedoRato" type="Area2D" parent="." unique_id=1346701652]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("16_wno4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaMedoRato" unique_id=580191136]
+position = Vector2(374.5, 128)
+shape = SubResource("RectangleShape2D_ueqr2")
 
 [connection signal="liberada" from="Placa" to="." method="_on_placa_liberada"]
 [connection signal="pressionada" from="Placa" to="." method="_on_placa_pressionada"]

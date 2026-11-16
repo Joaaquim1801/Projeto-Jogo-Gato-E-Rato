@@ -27,3 +27,4 @@ func ativar_alavanca():
 	ativada = true
 	alavanca_ativada.emit()
 	$AnimatedSprite2D.play("alavancaAtivar")
+	$AudioStreamPlayer.playing = true

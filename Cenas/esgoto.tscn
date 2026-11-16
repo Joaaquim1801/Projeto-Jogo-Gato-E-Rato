@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bq643uggctdl4"]
+
+[ext_resource type="Texture2D" uid="uid://bobrkp7u6fybv" path="res://Sprites/pipe_level_rust.png" id="1_3bvmr"]
+[ext_resource type="Script" uid="uid://dqc3qbo634dud" path="res://Cenas/esgoto.gd" id="1_k88w3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha50l"]
+size = Vector2(16, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giqkd"]
+size = Vector2(16, 16)
+
+[node name="Esgoto" type="Node2D" unique_id=2031049544]
+script = ExtResource("1_k88w3")
+
+[node name="Cano1" type="Area2D" parent="." unique_id=1169025703]
+z_index = -1
+position = Vector2(-23, -5)
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Cano1" unique_id=1334623623]
+position = Vector2(0, 25)
+texture = ExtResource("1_3bvmr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cano1" unique_id=143557554]
+position = Vector2(-24, 25.25)
+shape = SubResource("RectangleShape2D_ha50l")
+
+[node name="Cano2" type="Area2D" parent="." unique_id=57264726]
+z_index = -1
+position = Vector2(-23, -4)
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Cano2" unique_id=2007586760]
+texture = ExtResource("1_3bvmr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cano2" unique_id=1625188660]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_giqkd")

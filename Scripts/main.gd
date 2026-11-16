@@ -51,3 +51,9 @@ func proxima_fase():
 		carregar_fase.call_deferred()
 	else:
 		print("Todas as fases concluídas")
+
+func reiniciar_fase():
+	for filho in fase_atual_node.get_children():
+		filho.queue_free()
+
+	carregar_fase.call_deferred()

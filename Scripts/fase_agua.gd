@@ -4,6 +4,8 @@ extends FaseBase
 # Fases com água que esvazia linha por linha ao pisar na placa.
 @onready var agua = $TileAgua
 @onready var barreira_gato = $BarreiraGato
+@onready var Som_encher = $AguaEnchendo
+@onready var Som_esvaziar = $AguaEsvaziando
 var celulas_originais = {}
 var linhas_agua = []
 var agua_deve_ficar_vazia = false
@@ -22,10 +24,12 @@ func _ready():
 func _on_placa_pressionada():
 	agua_deve_ficar_vazia = true
 	processar_agua()
+	Som_esvaziar.play()
 
 func _on_placa_liberada():
 	agua_deve_ficar_vazia = false
 	processar_agua()
+	Som_encher.play()
 
 func processar_agua():
 	if processando_agua:
@@ -67,13 +71,16 @@ func processar_agua():
 func remover_barreira():
 	barreira_gato.visible = false
 	barreira_gato.get_node("CollisionShape2D").set_deferred("disabled", true)
+	$AreaAgua.get_node("CollisionShape2D").set_deferred("disabled", true)
 
 func restaurar_barreira():
 	barreira_gato.visible = true
 	barreira_gato.get_node("CollisionShape2D").set_deferred("disabled", false)
+	$AreaAgua.get_node("CollisionShape2D").set_deferred("disabled", false)
 
 # Botão que acende a lâmpada e libera a área escura
 func acender_lampada():
 	$AreaEscura.queue_free()
 	$BarreiraRato.queue_free()
 	$Lampada.play("lampada_acesa")
+	$AreaMedoRato.queue_free()

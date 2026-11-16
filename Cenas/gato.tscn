@@ -1,7 +1,25 @@
 [gd_scene format=3 uid="uid://dgetyh8q7fumt"]
 
 [ext_resource type="Script" uid="uid://bhjfmphe6750d" path="res://Scripts/gato.gd" id="1_20bqc"]
+[ext_resource type="Texture2D" uid="uid://bvk1rfx51qthu" path="res://Sprites/SetaJogador.png" id="3_c6pum"]
 [ext_resource type="Texture2D" uid="uid://dpt85md3tolak" path="res://Sprites/Cat-Sheet.png" id="3_tx2p5"]
+[ext_resource type="Texture2D" uid="uid://ds27owpja7i1m" path="res://Sprites/Aflicao.png" id="4_c6pum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx2p5"]
+atlas = ExtResource("3_tx2p5")
+region = Rect2(0, 1184, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6pum"]
+atlas = ExtResource("3_tx2p5")
+region = Rect2(32, 1184, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_algfa"]
+atlas = ExtResource("3_tx2p5")
+region = Rect2(64, 1184, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvxc5"]
+atlas = ExtResource("3_tx2p5")
+region = Rect2(96, 1184, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20bqc"]
 atlas = ExtResource("3_tx2p5")
@@ -83,6 +101,23 @@ region = Rect2(224, 128, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tx2p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6pum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_algfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvxc5")
+}],
+"loop": 0,
+"name": &"dyingCat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_20bqc")
 }],
 "loop": 1,
@@ -162,19 +197,54 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha50l"]
 size = Vector2(52, 37.3125)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3btd"]
+atlas = ExtResource("4_c6pum")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drtmn"]
+atlas = ExtResource("4_c6pum")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha50l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3btd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drtmn")
+}],
+"loop": 1,
+"name": &"medo",
+"speed": 2.0
+}]
+
 [node name="Gato" type="CharacterBody2D" unique_id=1899064660]
 position = Vector2(-46, 24)
 collision_layer = 4
 collision_mask = 17
 script = ExtResource("1_20bqc")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=253649906]
 position = Vector2(60.874996, -56.875)
 scale = Vector2(2.5703125, 2.8203125)
 sprite_frames = SubResource("SpriteFrames_20bqc")
-animation = &"jumpingCat"
+animation = &"dyingCat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942735418]
 position = Vector2(58, -30.34375)
 shape = SubResource("RectangleShape2D_ha50l")
+
+[node name="Seta" type="Sprite2D" parent="." unique_id=1698523242]
+z_index = 10
+position = Vector2(59.5, -60.5)
+scale = Vector2(0.1969697, 0.16666669)
+texture = ExtResource("3_c6pum")
+
+[node name="IconeMedo" type="AnimatedSprite2D" parent="." unique_id=410177582]
+visible = false
+position = Vector2(99, -63)
+sprite_frames = SubResource("SpriteFrames_ha50l")
+animation = &"medo"
+autoplay = "medo"
+frame_progress = 0.76375246

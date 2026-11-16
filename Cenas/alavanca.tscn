@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdhhfjedpi604" path="res://Scripts/alavanca.gd" id="1_146cw"]
 [ext_resource type="Texture2D" uid="uid://dpi3p55oeit7d" path="res://Sprites/Alavanca2.png" id="2_28nmg"]
+[ext_resource type="AudioStream" uid="uid://l7droqcywgsq" path="res://SFX/som_alavanca.wav" id="3_j2p4l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_41ryc"]
 radius = 52.009613
@@ -61,3 +62,6 @@ shape = SubResource("CircleShape2D_41ryc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=693334704]
 sprite_frames = SubResource("SpriteFrames_ha50l")
 animation = &"alavancaAtivar"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1623118720]
+stream = ExtResource("3_j2p4l")

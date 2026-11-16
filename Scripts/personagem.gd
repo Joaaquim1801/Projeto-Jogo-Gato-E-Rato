@@ -7,25 +7,40 @@ extends CharacterBody2D
 # Sufixo das animações: "Cat" -> idleCat, runningCat, jumpingCat, fallingCat
 @export var sufixo_animacao = "Cat"
 
+var assustado = false
 var is_active = false
+var proximo_da_escuridao = false
+var dentro_da_area_escura = false
+var esta_morrendo = false
 # Quando true, o personagem é carregado por outro e não se move sozinho
 var colado = false
 
 @onready var animacao = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
+	if esta_morrendo:
+		return
+
 	if colado:
 		velocity = Vector2.ZERO
 		animacao.play("idle" + sufixo_animacao)
 		return
 
+	# Gravidade continua funcionando mesmo quando o rato está assustado
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
+	if assustado:
+		velocity.x = 0
+		move_and_slide()
+		return
 
 	if is_active:
 		if Input.is_action_just_pressed("pular") and is_on_floor():
 			velocity.y = pulo
+
 		var direction := Input.get_axis("esquerda", "direita")
+
 		if direction:
 			velocity.x = direction * velocidade
 		else:
@@ -37,6 +52,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	atualizar_animacao()
 
+
 func atualizar_animacao():
 	if not is_on_floor():
 		animacao.play(("jumping" if velocity.y < 0 else "falling") + sufixo_animacao)
@@ -44,6 +60,7 @@ func atualizar_animacao():
 		animacao.play("running" + sufixo_animacao)
 	else:
 		animacao.play("idle" + sufixo_animacao)
+
 	# Vira o sprite conforme a direção
 	if velocity.x != 0:
 		animacao.flip_h = velocity.x < 0

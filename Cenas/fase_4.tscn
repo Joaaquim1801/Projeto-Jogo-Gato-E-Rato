@@ -200,4 +200,4 @@ tile_set = SubResource("TileSet_clnqf")
 position = Vector2(-419, 176)
 
 [node name="Gato" parent="." unique_id=1711468073 instance=ExtResource("6_s0t7t")]
-position = Vector2(-417, 226)
+position = Vector2(-419, 226)

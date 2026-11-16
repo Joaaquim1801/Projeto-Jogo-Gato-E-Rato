@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://xvtgmk0qn73o" path="res://Scripts/rato.gd" id="1_v31ub"]
 [ext_resource type="Texture2D" uid="uid://bduhbxy7y2gs7" path="res://Sprites/Rat_Sprites.png" id="3_6g1q8"]
+[ext_resource type="Texture2D" uid="uid://bvk1rfx51qthu" path="res://Sprites/SetaJogador.png" id="3_pghug"]
+[ext_resource type="Texture2D" uid="uid://ds27owpja7i1m" path="res://Sprites/Aflicao.png" id="4_pghug"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v31ub"]
 atlas = ExtResource("3_6g1q8")
@@ -46,6 +48,14 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8bxr"]
 atlas = ExtResource("3_6g1q8")
 region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g1q8"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d7h0"]
+atlas = ExtResource("3_6g1q8")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ha50l"]
 animations = [{
@@ -101,10 +111,43 @@ animations = [{
 "loop": 1,
 "name": &"runningRat",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g1q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d7h0")
+}],
+"loop": 1,
+"name": &"scaredRat",
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha50l"]
 size = Vector2(36.5, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh1j1"]
+atlas = ExtResource("4_pghug")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpbkw"]
+atlas = ExtResource("4_pghug")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_giqkd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh1j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpbkw")
+}],
+"loop": 1,
+"name": &"medo",
+"speed": 2.0
+}]
 
 [node name="Rato" type="CharacterBody2D" unique_id=1899064660]
 position = Vector2(0, -4)
@@ -117,8 +160,23 @@ metadata/_edit_group_ = true
 position = Vector2(0, 1)
 scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_ha50l")
-animation = &"jumpingRat"
+animation = &"idleRat"
+frame_progress = 0.9519695
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942735418]
 position = Vector2(0.25, 27.5)
 shape = SubResource("RectangleShape2D_ha50l")
+
+[node name="Seta" type="Sprite2D" parent="." unique_id=726133365]
+position = Vector2(2, -10.000001)
+scale = Vector2(0.16501516, 0.167)
+texture = ExtResource("3_pghug")
+
+[node name="IconeMedo" type="AnimatedSprite2D" parent="." unique_id=1245994068]
+visible = false
+position = Vector2(34, 3)
+scale = Vector2(0.90625, 0.96875)
+sprite_frames = SubResource("SpriteFrames_giqkd")
+animation = &"medo"
+autoplay = "medo"
+frame_progress = 0.010502511

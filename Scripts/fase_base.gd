@@ -32,6 +32,8 @@ func atualizar_personagem_ativo():
 	# O personagem ativo recebe true, o inativo recebe false
 	gato.is_active = gato_esta_ativo
 	rato.is_active = !gato_esta_ativo
+	$Gato/Seta.visible = gato_esta_ativo
+	$Rato/Seta.visible = !gato_esta_ativo
 
 func _physics_process(_delta):
 	if rato_colado:
@@ -49,12 +51,15 @@ func colar_rato():
 	gato_esta_ativo = true
 	atualizar_personagem_ativo()
 	posicionar_rato_no_gato()
+	rato.atualizar_icone_medo()
 
 func descolar_rato():
 	rato_colado = false
 	rato.colado = false
 	gato.remove_collision_exception_with(rato)
 	rato.remove_collision_exception_with(gato)
+	rato.atualizar_estado_escuro()
+	rato.atualizar_icone_medo()
 
 func posicionar_rato_no_gato():
 	var corpo_gato = gato.retangulo_colisao()
