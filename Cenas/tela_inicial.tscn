@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://ccau0h2trnvxs"]
+
+[ext_resource type="Texture2D" uid="uid://bwnam5mkqwvk7" path="res://Sprites/fundo_inicio.jpg" id="1_0nw1j"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="2_55vlj"]
+[ext_resource type="Texture2D" uid="uid://6bkq6x77p784" path="res://Sprites/Seta.png" id="2_ubl30"]
+[ext_resource type="Texture2D" uid="uid://c1wi3bby0g4qj" path="res://Sprites/botaoiniciar.png" id="3_botaoiniciar"]
+[ext_resource type="Texture2D" uid="uid://dylwctxmikk08" path="res://Sprites/tecla.png" id="4_0bsfe"]
+[ext_resource type="Texture2D" uid="uid://cavs1d6wf4uxu" path="res://Sprites/Banner.png" id="6_331a0"]
+[ext_resource type="Script" uid="uid://d2ae3seu7n5mn" path="res://Scripts/tela_inicial.gd" id="7_script"]
+
+[node name="TelaInicial" type="Control" unique_id=464443272]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_script")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=790621509]
+self_modulate = Color(0.23529412, 0.21568628, 0.19215687, 1)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_0nw1j")
+expand_mode = 1
+
+[node name="Seta2" type="Sprite2D" parent="Fundo" unique_id=342211068]
+position = Vector2(292.00003, 236.00002)
+rotation = 3.1415915
+scale = Vector2(4.375, 3.9166667)
+texture = ExtResource("2_ubl30")
+
+[node name="Botaoiniciar" type="Sprite2D" parent="Fundo" unique_id=690163973]
+self_modulate = Color(1.5650868, 2.3133948, 2.3133948, 1)
+position = Vector2(574, 598)
+scale = Vector2(11.142857, 6.2250066)
+texture = ExtResource("3_botaoiniciar")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Fundo" unique_id=1846940465]
+modulate = Color(1.0996906, 1.6079651, 1.6950978, 1)
+self_modulate = Color(1.2575287, 1.799562, 1.723487, 1)
+position = Vector2(258, 345.00003)
+scale = Vector2(4.4553576, 3.7142866)
+texture = ExtResource("4_0bsfe")
+
+[node name="Label7" type="Label" parent="Fundo" unique_id=1419081191]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 222.0
+offset_right = 670.0
+offset_bottom = 306.0
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 33
+text = "Para Movimentar-se"
+
+[node name="Label8" type="Label" parent="Fundo" unique_id=1602601731]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 326.0
+offset_right = 671.0
+offset_bottom = 370.0
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 33
+text = "Para Interagir"
+
+[node name="Label9" type="Label" parent="Fundo" unique_id=399840631]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 400.0
+offset_right = 748.0
+offset_bottom = 448.0
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 33
+text = "Para Trocar de Personagem"
+
+[node name="Seta" type="Sprite2D" parent="Fundo" unique_id=394887982]
+position = Vector2(217, 236)
+scale = Vector2(4.375, 3.9166667)
+texture = ExtResource("2_ubl30")
+
+[node name="Seta3" type="Sprite2D" parent="Fundo" unique_id=1621025031]
+position = Vector2(253.99998, 197.00002)
+rotation = 1.5770566
+scale = Vector2(4.375, 3.9166667)
+texture = ExtResource("2_ubl30")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Fundo" unique_id=967700466]
+modulate = Color(1.0996906, 1.6079651, 1.6950978, 1)
+self_modulate = Color(1.2575287, 1.799562, 1.723487, 1)
+position = Vector2(257, 422.00003)
+scale = Vector2(4.4553576, 3.7142866)
+texture = ExtResource("4_0bsfe")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Fundo" unique_id=555839954]
+modulate = Color(1.0996906, 1.6079651, 1.6950978, 1)
+self_modulate = Color(1.2575287, 1.799562, 1.723487, 1)
+position = Vector2(258, 493)
+scale = Vector2(4.4553576, 3.7142866)
+texture = ExtResource("4_0bsfe")
+
+[node name="GrupoTitulo" type="Control" parent="." unique_id=1669288522]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_right = 204.0
+offset_bottom = 109.0
+grow_horizontal = 2
+
+[node name="Label4" type="Label" parent="." unique_id=1354875545]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 333.0
+offset_right = 278.0
+offset_bottom = 356.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 22
+text = "E"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="." unique_id=1727684259]
+layout_mode = 0
+offset_left = 242.1875
+offset_top = 406.99997
+offset_right = 282.1875
+offset_bottom = 433.99997
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 24
+text = "TAB"
+
+[node name="Label6" type="Label" parent="." unique_id=1617831451]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 477.0
+offset_right = 292.0
+offset_bottom = 505.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 26
+text = "Q"
+
+[node name="BtnJogar" type="Button" parent="." unique_id=211029948]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -77.0
+offset_right = 44.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.21176471, 0.32156864, 0.3019608, 1)
+theme_override_colors/font_focus_color = Color(0.21176471, 0.32156864, 0.3019608, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 33
+text = "Iniciar"
+flat = true
+
+[node name="Label7" type="Label" parent="." unique_id=1756255136]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 471.0
+offset_right = 748.0
+offset_bottom = 519.0
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 33
+text = "Para Montar no Gato"
+
+[node name="Banner" type="Sprite2D" parent="." unique_id=1207584677]
+self_modulate = Color(4.3302517, 4.3302517, 4.3302517, 1)
+position = Vector2(574, 83)
+scale = Vector2(4.5520835, 5.8999996)
+texture = ExtResource("6_331a0")
+
+[node name="Titulo" type="Label" parent="." unique_id=692808637]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -154.0
+offset_top = 34.0
+offset_right = 155.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2104924, 0.32144645, 0.30383894, 1)
+theme_override_fonts/font = ExtResource("2_55vlj")
+theme_override_font_sizes/font_size = 72
+text = "Mutual"
+horizontal_alignment = 1
+vertical_alignment = 1
