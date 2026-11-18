@@ -22,7 +22,7 @@ func _on_body_exited(body):
 	personagens_perto.erase(body)
 
 func ativar_alavanca():
-	if ativada:
+	if get_tree().current_scene.numero_fase != 5 and ativada:
 		return
 	ativada = true
 	tocar_som_personagem()

@@ -8,7 +8,8 @@ const FASES = [
 	preload("res://Cenas/fase_3.tscn"),
 	preload("res://Cenas/fase_4.tscn"),
 	preload("res://Cenas/fase_5.tscn"),
-	preload("res://Cenas/fase_6.tscn")
+	preload("res://Cenas/fase_6.tscn"),
+	preload("res://Cenas/fase_7.tscn")
 ]
 const MUSICA_INICIO = "res://SFX/Starry Valley.wav"
 const MUSICA_JOGO = "res://SFX/Peaceful Pixel Haven.wav"
@@ -66,3 +67,11 @@ func reiniciar_fase():
 		filho.queue_free()
 
 	carregar_fase.call_deferred()
+
+func reiniciar_jogo():
+	numero_fase = 0
+
+	for filho in fase_atual_node.get_children():
+		filho.queue_free()
+
+	mostrar_tela_inicial()

@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://756orptxrawk"]
+
+[ext_resource type="Script" uid="uid://bi0qsqnriq2u5" path="res://Cenas/fase_7.gd" id="1_qw8oa"]
+[ext_resource type="Texture2D" uid="uid://bwnam5mkqwvk7" path="res://Sprites/fundo_inicio.jpg" id="2_mtjqd"]
+[ext_resource type="Texture2D" uid="uid://c1wi3bby0g4qj" path="res://Sprites/botaoiniciar.png" id="4_m1ynj"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="6_db5ea"]
+[ext_resource type="Texture2D" uid="uid://cavs1d6wf4uxu" path="res://Sprites/Banner.png" id="7_28qnd"]
+
+[node name="Fase7" type="Node2D" unique_id=868143898]
+script = ExtResource("1_qw8oa")
+
+[node name="TelaInicial" type="Control" parent="." unique_id=464443272]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fundo" type="TextureRect" parent="TelaInicial" unique_id=790621509]
+self_modulate = Color(0.23529412, 0.21568628, 0.19215687, 1)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_mtjqd")
+expand_mode = 1
+
+[node name="Botaoiniciar" type="Sprite2D" parent="TelaInicial/Fundo" unique_id=690163973]
+self_modulate = Color(1.5650868, 2.3133948, 2.3133948, 1)
+position = Vector2(574, 598)
+scale = Vector2(11.142857, 6.2250066)
+texture = ExtResource("4_m1ynj")
+
+[node name="Label7" type="Label" parent="TelaInicial/Fundo" unique_id=1419081191]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 265.0
+offset_right = 756.0
+offset_bottom = 349.0
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_fonts/font = ExtResource("6_db5ea")
+theme_override_font_sizes/font_size = 33
+text = "Você terminou todas as fases!"
+
+[node name="Label8" type="Label" parent="TelaInicial/Fundo" unique_id=1602601731]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 405.0
+offset_right = 804.0
+offset_bottom = 449.0
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+theme_override_fonts/font = ExtResource("6_db5ea")
+theme_override_font_sizes/font_size = 33
+text = "Aperte no botão para jogar novamente"
+
+[node name="GrupoTitulo" type="Control" parent="TelaInicial" unique_id=1669288522]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_right = 204.0
+offset_bottom = 109.0
+grow_horizontal = 2
+
+[node name="BtnJogar" type="Button" parent="TelaInicial" unique_id=211029948]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 522.0
+offset_top = 572.0
+offset_right = 629.0
+offset_bottom = 616.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.21176471, 0.32156864, 0.3019608, 1)
+theme_override_colors/font_focus_color = Color(0.21176471, 0.32156864, 0.3019608, 1)
+theme_override_fonts/font = ExtResource("6_db5ea")
+theme_override_font_sizes/font_size = 33
+text = "Reiniciar"
+flat = true
+
+[node name="Banner" type="Sprite2D" parent="TelaInicial" unique_id=1207584677]
+self_modulate = Color(4.3302517, 4.3302517, 4.3302517, 1)
+position = Vector2(580.00006, 77.00001)
+scale = Vector2(6.752603, 5.8999996)
+texture = ExtResource("7_28qnd")
+
+[node name="Titulo" type="Label" parent="TelaInicial" unique_id=692808637]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 427.0
+offset_top = 31.0
+offset_right = 736.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2104924, 0.32144645, 0.30383894, 1)
+theme_override_fonts/font = ExtResource("6_db5ea")
+theme_override_font_sizes/font_size = 72
+text = "Parabéns!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TelaInicial/BtnJogar" to="." method="_on_btn_jogar_pressed"]
