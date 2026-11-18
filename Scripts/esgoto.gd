@@ -16,10 +16,10 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interagir"):
 
 		if rato_perto_cano1 != null:
-			teleportar_rato(rato_perto_cano1, $Cano2.global_position)
+			teleportar_rato(rato_perto_cano1, $Cano2/SpawnCano2.global_position)
 
 		elif rato_perto_cano2 != null:
-			teleportar_rato(rato_perto_cano2, $Cano1.global_position)
+			teleportar_rato(rato_perto_cano2, $Cano1/SpawnCano1.global_position)
 
 
 func _on_cano1_body_entered(body):

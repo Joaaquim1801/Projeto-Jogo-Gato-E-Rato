@@ -5,6 +5,11 @@ extends Node2D
 @onready var gato = $Gato
 @onready var rato = $Rato
 
+var camera_personagens = {
+	"Gato": 1,
+	"Rato": 1
+}
+
 # Define o Gato como o personagem inicial
 var gato_esta_ativo = true
 
@@ -32,8 +37,13 @@ func atualizar_personagem_ativo():
 	# O personagem ativo recebe true, o inativo recebe false
 	gato.is_active = gato_esta_ativo
 	rato.is_active = !gato_esta_ativo
+
 	$Gato/Seta.visible = gato_esta_ativo
 	$Rato/Seta.visible = !gato_esta_ativo
+
+	# Ativa a câmera correspondente ao personagem selecionado
+	var personagem_ativo = gato if gato_esta_ativo else rato
+	trocar_camera(camera_personagens[personagem_ativo.name])
 
 func _physics_process(_delta):
 	if rato_colado:
@@ -68,3 +78,26 @@ func posicionar_rato_no_gato():
 	var ajuste = rato.global_position - Vector2(corpo_rato.get_center().x, corpo_rato.end.y)
 	rato.global_position = Vector2(corpo_gato.get_center().x, corpo_gato.position.y) + ajuste
 	rato.animacao.flip_h = gato.animacao.flip_h
+
+
+func trocar_camera(numero: int):
+	var camera_desejada = $Cameras.get_node_or_null("Camera" + str(numero))
+
+	if camera_desejada == null:
+		print("Câmera não encontrada: Camera", numero)
+		return
+
+	for camera in $Cameras.get_children():
+		camera.enabled = false
+
+	camera_desejada.enabled = true
+	camera_desejada.make_current()
+
+	print("Câmera ativada: ", camera_desejada.name)
+
+
+func registrar_camera(body, numero: int):
+	camera_personagens[body.name] = numero
+
+	if body.is_active:
+		trocar_camera(numero)

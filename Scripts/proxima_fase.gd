@@ -2,6 +2,8 @@ extends Area2D
 
 var personagens_na_saida = []
 var pode_avancar = true
+# Guarda a câmera em que cada personagem está
+
 
 func _on_body_entered(body):
 	if not pode_avancar:

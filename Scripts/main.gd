@@ -5,7 +5,9 @@ const FASES = [
 	preload("res://Cenas/fase_1.tscn"),
 	preload("res://Cenas/fase_2.tscn"),
 	preload("res://Cenas/fase_3.tscn"),
-	preload("res://Cenas/fase_4.tscn")
+	preload("res://Cenas/fase_4.tscn"),
+	preload("res://Cenas/fase_5.tscn"),
+	preload("res://Cenas/fase_6.tscn")
 ]
 const MUSICA_INICIO = "res://SFX/Starry Valley.wav"
 const MUSICA_JOGO = "res://SFX/Peaceful Pixel Haven.wav"

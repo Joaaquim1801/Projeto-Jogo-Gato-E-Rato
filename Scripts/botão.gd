@@ -5,6 +5,7 @@ var personagens_perto = []
 var ativado = false
 
 
+
 func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -22,7 +23,7 @@ func _on_body_exited(body):
 	personagens_perto.erase(body)
 
 func ativar_botao():
-	if ativado:
+	if get_tree().current_scene.numero_fase != 5 and ativado:
 		return
 	ativado = true
 	botao_ativado.emit()
