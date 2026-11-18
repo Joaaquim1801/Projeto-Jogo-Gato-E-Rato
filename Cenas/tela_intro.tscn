@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bvr1tx85edbla"]
+
+[ext_resource type="Script" uid="uid://qo5snikg8r46" path="res://Scripts/tela_intro.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="2_font"]
+
+[node name="TelaIntro" type="Control" unique_id=987750667]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="FundoPreto" type="ColorRect" parent="." unique_id=1246153647]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextoIntro" type="Label" parent="." unique_id=1597771025]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 144.0
+offset_top = 7.0
+offset_right = -110.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+text = "\"Ninguém é tão grande que não possa aprender, nem tão pequeno que não possa ensinar.\"
+
+-Esopo, Grécia Antiga (600 A.C)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

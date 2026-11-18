@@ -1,6 +1,7 @@
 extends Node
 
 const TELA_INICIAL = preload("res://Cenas/tela_inicial.tscn")
+const TELA_INTRO = preload("res://Cenas/tela_intro.tscn")
 const FASES = [
 	preload("res://Cenas/fase_1.tscn"),
 	preload("res://Cenas/fase_2.tscn"),
@@ -38,6 +39,12 @@ func mostrar_tela_inicial():
 	tela_inicial.iniciar_jogo.connect(_on_iniciar_jogo)
 
 func _on_iniciar_jogo():
+	musica.stop()
+	var tela_intro = TELA_INTRO.instantiate()
+	add_child(tela_intro)
+	tela_intro.intro_finalizada.connect(_on_intro_finalizada)
+
+func _on_intro_finalizada():
 	tocar_musica(MUSICA_JOGO)
 	carregar_fase()
 
