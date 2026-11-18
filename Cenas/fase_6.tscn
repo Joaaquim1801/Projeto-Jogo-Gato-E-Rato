@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://5lybou013bnb" path="res://Sprites/background_1.jpg" id="16_bg1"]
 [ext_resource type="Texture2D" uid="uid://c1wi3bby0g4qj" path="res://Sprites/botaoiniciar.png" id="17_cx1f3"]
 [ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="18_fq6cm"]
+[ext_resource type="Texture2D" uid="uid://b8xrgps04en5p" path="res://Sprites/saída.png" id="19_fq6cm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pji7o"]
 texture = ExtResource("2_l3p2n")
@@ -431,6 +432,11 @@ offset_bottom = 57.0
 theme_override_fonts/font = ExtResource("18_fq6cm")
 text = "Reiniciar"
 flat = true
+
+[node name="Saída" type="Sprite2D" parent="." unique_id=267563055]
+position = Vector2(513.00006, -745)
+scale = Vector2(2.484375, 1.96875)
+texture = ExtResource("19_fq6cm")
 
 [connection signal="botao_ativado" from="Botão" to="." method="_on_botão_botao_ativado"]
 [connection signal="botao_ativado" from="Botão2" to="." method="_on_botão_2_botao_ativado"]
