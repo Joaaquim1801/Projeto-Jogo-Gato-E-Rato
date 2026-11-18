@@ -520,6 +520,15 @@ tile_set = SubResource("TileSet_16cy4")
 [node name="Camera2" type="Camera2D" parent="Cameras" unique_id=1807018959]
 position = Vector2(1147, 2)
 
+[node name="LimitesCamera" type="ReferenceRect" parent="." unique_id=1650312878]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 1723.0
+offset_bottom = 326.0
+mouse_filter = 2
+border_color = Color(1, 0.2, 0.2, 1)
+border_width = 4.0
+
 [node name="Troca1" type="Area2D" parent="." unique_id=803255853]
 visible = false
 collision_mask = 6

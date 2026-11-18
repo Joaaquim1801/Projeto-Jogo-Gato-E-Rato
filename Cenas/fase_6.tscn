@@ -351,11 +351,19 @@ position = Vector2(455, -19)
 
 [node name="Camera1" type="Camera2D" parent="Cameras" unique_id=649482700]
 position = Vector2(289, -92)
-zoom = Vector2(0.7, 1)
 
 [node name="Camera2" type="Camera2D" parent="Cameras" unique_id=1799988612]
 position = Vector2(290, -720)
 zoom = Vector2(0.7, 1)
+
+[node name="LimitesCamera" type="ReferenceRect" parent="." unique_id=1650312877]
+offset_left = -535.0
+offset_top = -1044.0
+offset_right = 1114.0
+offset_bottom = 232.0
+mouse_filter = 2
+border_color = Color(1, 0.2, 0.2, 1)
+border_width = 4.0
 
 [node name="Troca1" type="Area2D" parent="." unique_id=888194043]
 visible = false

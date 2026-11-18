@@ -18,9 +18,14 @@ var gato_esta_ativo = true
 const DISTANCIA_COLAR = 100.0
 var rato_colado = false
 
+# Câmera que segue o personagem ativo, presa nas bordas da fase.
+# Só é usada se a fase tiver um nó ReferenceRect chamado "LimitesCamera".
+var camera_segue = false
+
 func _ready():
 	# Roda a física da fase depois da dos personagens, para o Rato não ficar um frame atrasado
 	process_physics_priority = 1
+	configurar_camera_seguindo()
 	atualizar_personagem_ativo()
 	botao_reiniciar.pressed.connect(_on_botao_reiniciar_pressed)
 
@@ -44,12 +49,36 @@ func atualizar_personagem_ativo():
 	$Rato/Seta.visible = !gato_esta_ativo
 
 	# Ativa a câmera correspondente ao personagem selecionado
+	if camera_segue:
+		return
 	var personagem_ativo = gato if gato_esta_ativo else rato
 	trocar_camera(camera_personagens[personagem_ativo.name])
 
 func _physics_process(_delta):
 	if rato_colado:
 		posicionar_rato_no_gato()
+	if camera_segue:
+		var personagem_ativo = gato if gato_esta_ativo else rato
+		$Cameras/Camera1.global_position = personagem_ativo.retangulo_colisao().get_center()
+
+func configurar_camera_seguindo():
+	var limites = get_node_or_null("LimitesCamera")
+	if limites == null:
+		return
+	camera_segue = true
+	var area = limites.get_global_rect()
+	var camera = $Cameras/Camera1
+	trocar_camera(1)
+	# A Camera2D já impede de mostrar além desses limites
+	camera.limit_left = int(area.position.x)
+	camera.limit_top = int(area.position.y)
+	camera.limit_right = int(area.end.x)
+	camera.limit_bottom = int(area.end.y)
+	camera.position_smoothing_enabled = true
+	camera.position_smoothing_speed = 6.0
+	var personagem_ativo = gato if gato_esta_ativo else rato
+	camera.global_position = personagem_ativo.retangulo_colisao().get_center()
+	camera.reset_smoothing()
 
 func colar_rato():
 	var distancia = gato.retangulo_colisao().get_center().distance_to(rato.retangulo_colisao().get_center())
@@ -103,6 +132,8 @@ func trocar_camera(numero: int):
 
 
 func registrar_camera(body, numero: int):
+	if camera_segue:
+		return
 	camera_personagens[body.name] = numero
 
 	if body.is_active:
