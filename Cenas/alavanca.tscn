@@ -50,7 +50,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Alavanca" type="Area2D" unique_id=390023662]
+[node name="Alavanca" type="Area2D" unique_id=390023662 groups=["interagiveis"]]
 z_index = -1
 collision_mask = 6
 script = ExtResource("1_146cw")

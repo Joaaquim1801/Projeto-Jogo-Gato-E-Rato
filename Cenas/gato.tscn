@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ds27owpja7i1m" path="res://Sprites/Aflicao.png" id="4_c6pum"]
 [ext_resource type="AudioStream" uid="uid://dawbx5u7xs3fx" path="res://SFX/gato_som.mp3" id="5_gatosom"]
 [ext_resource type="AudioStream" uid="uid://dtv4eobkdih5u" path="res://SFX/gato_aflito.mp3" id="6_gatoaflito"]
+[ext_resource type="Texture2D" uid="uid://dylwctxmikk08" path="res://Sprites/tecla.png" id="7_tuk3c"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="8_ky1yb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx2p5"]
 atlas = ExtResource("3_tx2p5")
@@ -226,12 +228,13 @@ position = Vector2(-46, 24)
 collision_layer = 4
 collision_mask = 17
 script = ExtResource("1_20bqc")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=253649906]
 position = Vector2(60.874996, -56.875)
 scale = Vector2(2.5703125, 2.8203125)
 sprite_frames = SubResource("SpriteFrames_20bqc")
-animation = &"dyingCat"
+animation = &"idleCat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1942735418]
 position = Vector2(58, -30.34375)
@@ -256,3 +259,30 @@ stream = ExtResource("5_gatosom")
 
 [node name="SomAflito" type="AudioStreamPlayer" parent="." unique_id=1482910387]
 stream = ExtResource("6_gatoaflito")
+
+[node name="IndicadorE" type="Node2D" parent="." unique_id=1194651184]
+
+[node name="Sprite2D" type="Sprite2D" parent="IndicadorE" unique_id=1803883721]
+position = Vector2(105, -65.25)
+scale = Vector2(2.0714288, 2.2500002)
+texture = ExtResource("7_tuk3c")
+
+[node name="Label4" type="Label" parent="IndicadorE" unique_id=1548908917]
+offset_left = 85.0
+offset_top = -79.24999
+offset_right = 125.0
+offset_bottom = -55.249992
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_ky1yb")
+theme_override_font_sizes/font_size = 22
+text = "E"
+horizontal_alignment = 1
+
+[node name="AreaDeteccao" type="Area2D" parent="." unique_id=1561078381]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccao" unique_id=1157398620]
+position = Vector2(58, -30.34375)
+shape = SubResource("RectangleShape2D_ha50l")
+
+[connection signal="area_entered" from="AreaDeteccao" to="." method="_on_area_deteccao_area_entered"]
+[connection signal="area_exited" from="AreaDeteccao" to="." method="_on_area_deteccao_area_exited"]

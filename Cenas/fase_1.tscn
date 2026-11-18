@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://d22k5xg8ef3jo" path="res://Cenas/botão.tscn" id="9_65ygv"]
 [ext_resource type="AudioStream" uid="uid://8531hw2vexts" path="res://SFX/som_portao.wav" id="10_e3ho8"]
 [ext_resource type="Texture2D" uid="uid://cp21sc4tyjpce" path="res://Sprites/background_2.jpg" id="11_bg2"]
+[ext_resource type="Texture2D" uid="uid://c1wi3bby0g4qj" path="res://Sprites/botaoiniciar.png" id="14_hhpk5"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="15_07qf3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i08y3"]
 texture = ExtResource("2_wddeb")
@@ -158,7 +160,7 @@ position = Vector2(-425, 224)
 collision_mask = 6
 
 [node name="Cerca2" parent="." unique_id=1445276282 instance=ExtResource("8_k6662")]
-position = Vector2(415, -219)
+position = Vector2(428, -217)
 
 [node name="Botão" parent="." unique_id=1605805483 instance=ExtResource("9_65ygv")]
 position = Vector2(113, 202)
@@ -173,6 +175,22 @@ stream = ExtResource("10_e3ho8")
 
 [node name="Camera1" type="Camera2D" parent="Cameras" unique_id=492208404]
 position = Vector2(16, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1090922233]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1182170085]
+position = Vector2(51, 33)
+scale = Vector2(5.3214283, 4.7500005)
+texture = ExtResource("14_hhpk5")
+
+[node name="BotaoReiniciar" type="Button" parent="CanvasLayer" unique_id=39912273]
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 87.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("15_07qf3")
+text = "Reiniciar"
+flat = true
 
 [connection signal="botao_ativado" from="Botão" to="." method="_on_botão_botao_ativado"]
 [connection signal="alavanca_ativada" from="Alavanca" to="." method="_on_alavanca_alavanca_ativada"]

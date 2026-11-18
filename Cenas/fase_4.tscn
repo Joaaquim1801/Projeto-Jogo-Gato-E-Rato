@@ -25,6 +25,8 @@
 [ext_resource type="AudioStream" uid="uid://8531hw2vexts" path="res://SFX/som_portao.wav" id="23_h6n5s"]
 [ext_resource type="Script" uid="uid://dglve2hl6uyom" path="res://area_base.gd" id="24_l0ffe"]
 [ext_resource type="Texture2D" uid="uid://5lybou013bnb" path="res://Sprites/background_1.jpg" id="25_bg1"]
+[ext_resource type="Texture2D" uid="uid://c1wi3bby0g4qj" path="res://Sprites/botaoiniciar.png" id="26_rsami"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="27_ya77u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pji7o"]
 texture = ExtResource("2_t85r4")
@@ -521,9 +523,11 @@ tile_map_data = PackedByteArray("AADg/xAAAwADAAIAAADg/xEAAwACAAQAAADg/xIAAwABAAM
 tile_set = SubResource("TileSet_clnqf")
 
 [node name="Rato" parent="." unique_id=1899064660 instance=ExtResource("5_p7mr6")]
+z_index = -1
 position = Vector2(-466, -4)
 
 [node name="Gato" parent="." unique_id=1711468073 instance=ExtResource("6_s0t7t")]
+z_index = -1
 position = Vector2(-466, 47)
 
 [node name="TileAgua" type="TileMapLayer" parent="." unique_id=1652848333]
@@ -537,17 +541,36 @@ collision_mask = 2
 script = ExtResource("10_p7mr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEscura" unique_id=1905661386]
+visible = false
 position = Vector2(-100.5, -84.5)
 shape = SubResource("RectangleShape2D_s0t7t")
 
 [node name="ColorRect" type="ColorRect" parent="AreaEscura" unique_id=924274591]
-offset_left = -360.0
+z_index = -1
+offset_left = -278.0
 offset_top = -324.0
-offset_right = 157.0
+offset_right = 88.0
 offset_bottom = 132.0
 color = Color(0.003921569, 0.003921569, 0.003921569, 0.4392157)
 
+[node name="ColorRect2" type="ColorRect" parent="AreaEscura" unique_id=61938364]
+z_index = -1
+offset_left = -353.0
+offset_top = -324.0
+offset_right = -278.0
+offset_bottom = 126.0
+color = Color(0, 0, 0, 0.27058825)
+
+[node name="ColorRect3" type="ColorRect" parent="AreaEscura" unique_id=450948952]
+z_index = -1
+offset_left = 88.0
+offset_top = -306.0
+offset_right = 154.0
+offset_bottom = 144.0
+color = Color(0, 0, 0, 0.27058825)
+
 [node name="Lampada" type="AnimatedSprite2D" parent="." unique_id=200838736]
+z_index = -1
 position = Vector2(-112.00001, -282)
 scale = Vector2(3.3276274, 2.4326928)
 sprite_frames = SubResource("SpriteFrames_2l837")
@@ -581,12 +604,13 @@ position = Vector2(159, -128)
 shape = SubResource("RectangleShape2D_gks0g")
 
 [node name="Esgoto" parent="." unique_id=2031049544 instance=ExtResource("14_2l837")]
+z_index = -1
 
 [node name="Cano1" parent="Esgoto" index="0" unique_id=1169025703]
 position = Vector2(513, -19)
 
 [node name="Cano2" parent="Esgoto" index="1" unique_id=57264726]
-position = Vector2(-494, -488)
+position = Vector2(-496, -471)
 
 [node name="Alavanca" parent="." unique_id=390023662 instance=ExtResource("15_16cy4")]
 position = Vector2(464, -495)
@@ -609,6 +633,7 @@ position = Vector2(493, -608)
 position = Vector2(-309, 104)
 
 [node name="Placa" parent="." unique_id=399057834 instance=ExtResource("19_d8amc")]
+z_index = -2
 position = Vector2(-375, -461)
 
 [node name="AguaEsvaziando" type="AudioStreamPlayer" parent="." unique_id=1897175143]
@@ -663,6 +688,22 @@ numero_camera = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Troca2" unique_id=1108405468]
 position = Vector2(-0.75, -648)
 shape = SubResource("RectangleShape2D_7ujxf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1923654502]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=77411249]
+position = Vector2(51, 33)
+scale = Vector2(5.3214283, 4.7500005)
+texture = ExtResource("26_rsami")
+
+[node name="BotaoReiniciar" type="Button" parent="CanvasLayer" unique_id=1432561540]
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 87.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("27_ya77u")
+text = "Reiniciar"
+flat = true
 
 [connection signal="alavanca_ativada" from="Alavanca" to="." method="_on_alavanca_alavanca_ativada"]
 [connection signal="botao_ativado" from="Botão" to="." method="_on_botão_botao_ativado"]

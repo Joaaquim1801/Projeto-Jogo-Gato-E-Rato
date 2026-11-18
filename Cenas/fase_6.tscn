@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://8531hw2vexts" path="res://SFX/som_portao.wav" id="14_exsaq"]
 [ext_resource type="PackedScene" uid="uid://bxy1u2hoxg20n" path="res://Cenas/proxima_fase.tscn" id="15_k3u8m"]
 [ext_resource type="Texture2D" uid="uid://5lybou013bnb" path="res://Sprites/background_1.jpg" id="16_bg1"]
+[ext_resource type="Texture2D" uid="uid://c1wi3bby0g4qj" path="res://Sprites/botaoiniciar.png" id="17_cx1f3"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="18_fq6cm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pji7o"]
 texture = ExtResource("2_l3p2n")
@@ -413,6 +415,22 @@ stream = ExtResource("14_exsaq")
 
 [node name="ProximaFase" parent="." unique_id=1127712611 instance=ExtResource("15_k3u8m")]
 position = Vector2(521, -749)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=302386922]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=603315557]
+position = Vector2(51, 33)
+scale = Vector2(5.3214283, 4.7500005)
+texture = ExtResource("17_cx1f3")
+
+[node name="BotaoReiniciar" type="Button" parent="CanvasLayer" unique_id=1521792990]
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 87.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("18_fq6cm")
+text = "Reiniciar"
+flat = true
 
 [connection signal="botao_ativado" from="Botão" to="." method="_on_botão_botao_ativado"]
 [connection signal="botao_ativado" from="Botão2" to="." method="_on_botão_2_botao_ativado"]

@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://crx1xjbshe7h1" path="res://Cenas/plataforma.tscn" id="23_yx16q"]
 [ext_resource type="PackedScene" uid="uid://bxy1u2hoxg20n" path="res://Cenas/proxima_fase.tscn" id="24_i77l3"]
 [ext_resource type="Texture2D" uid="uid://5lybou013bnb" path="res://Sprites/background_1.jpg" id="25_bg1"]
+[ext_resource type="Texture2D" uid="uid://c1wi3bby0g4qj" path="res://Sprites/botaoiniciar.png" id="26_46jqu"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="27_dy7op"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pji7o"]
 texture = ExtResource("2_31nj7")
@@ -630,6 +632,22 @@ position = Vector2(803, 116)
 
 [node name="ProximaFase" parent="." unique_id=1127712611 instance=ExtResource("24_i77l3")]
 position = Vector2(1776, -87)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1752799188]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=769043460]
+position = Vector2(51, 33)
+scale = Vector2(5.3214283, 4.7500005)
+texture = ExtResource("26_46jqu")
+
+[node name="BotaoReiniciar" type="Button" parent="CanvasLayer" unique_id=367424328]
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 87.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("27_dy7op")
+text = "Reiniciar"
+flat = true
 
 [connection signal="liberada" from="Placa" to="." method="_on_placa_liberada"]
 [connection signal="pressionada" from="Placa" to="." method="_on_placa_pressionada"]

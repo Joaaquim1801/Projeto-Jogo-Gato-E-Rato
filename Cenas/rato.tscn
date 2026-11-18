@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://c7xhavpefsoc6" path="res://SFX/rato_som.mp3" id="5_ratosom"]
 [ext_resource type="AudioStream" uid="uid://rayw1cql0ox0" path="res://SFX/rato_aflito.mp3" id="6_ratoaflito"]
 [ext_resource type="AudioStream" uid="uid://ct5mwywskbasn" path="res://SFX/Agua_splash.wav" id="7_aguasplash"]
+[ext_resource type="Texture2D" uid="uid://dylwctxmikk08" path="res://Sprites/tecla.png" id="8_kmyuq"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="9_nu7en"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v31ub"]
 atlas = ExtResource("3_6g1q8")
@@ -192,3 +194,30 @@ stream = ExtResource("6_ratoaflito")
 
 [node name="SomAgua" type="AudioStreamPlayer" parent="." unique_id=1482910388]
 stream = ExtResource("7_aguasplash")
+
+[node name="IndicadorE" type="Node2D" parent="." unique_id=263500396]
+
+[node name="Sprite2D" type="Sprite2D" parent="IndicadorE" unique_id=97688071]
+position = Vector2(54, -21)
+scale = Vector2(2.0714288, 2.2500002)
+texture = ExtResource("8_kmyuq")
+
+[node name="Label4" type="Label" parent="IndicadorE" unique_id=1364252504]
+offset_left = 34.0
+offset_top = -35.0
+offset_right = 74.0
+offset_bottom = -11.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_nu7en")
+theme_override_font_sizes/font_size = 22
+text = "E"
+horizontal_alignment = 1
+
+[node name="AreaDeteccao" type="Area2D" parent="." unique_id=420245661]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccao" unique_id=2001142620]
+position = Vector2(0.25, 27.5)
+shape = SubResource("RectangleShape2D_ha50l")
+
+[connection signal="area_entered" from="AreaDeteccao" to="." method="_on_area_deteccao_area_entered"]
+[connection signal="area_exited" from="AreaDeteccao" to="." method="_on_area_deteccao_area_exited"]

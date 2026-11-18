@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://ct5mwywskbasn" path="res://SFX/Agua_splash.wav" id="13_csihj"]
 [ext_resource type="Script" uid="uid://dwb7ej2kj47yj" path="res://Scripts/area_medo_rato.gd" id="16_wno4v"]
 [ext_resource type="Texture2D" uid="uid://cp21sc4tyjpce" path="res://Sprites/background_2.jpg" id="17_bg2"]
+[ext_resource type="Texture2D" uid="uid://c1wi3bby0g4qj" path="res://Sprites/botaoiniciar.png" id="20_wfpt1"]
+[ext_resource type="FontFile" uid="uid://dmpqtveg4fm10" path="res://Jersey10-Regular.ttf" id="21_m281y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hfxx3"]
 texture = ExtResource("4_wno4v")
@@ -387,6 +389,22 @@ shape = SubResource("RectangleShape2D_ueqr2")
 [node name="Cameras" type="Node2D" parent="." unique_id=793996649]
 
 [node name="Camera1" type="Camera2D" parent="Cameras" unique_id=1336108326]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2024883015]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=910102255]
+position = Vector2(51, 33)
+scale = Vector2(5.3214283, 4.7500005)
+texture = ExtResource("20_wfpt1")
+
+[node name="BotaoReiniciar" type="Button" parent="CanvasLayer" unique_id=813866897]
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 87.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("21_m281y")
+text = "Reiniciar"
+flat = true
 
 [connection signal="liberada" from="Placa" to="." method="_on_placa_liberada"]
 [connection signal="pressionada" from="Placa" to="." method="_on_placa_pressionada"]

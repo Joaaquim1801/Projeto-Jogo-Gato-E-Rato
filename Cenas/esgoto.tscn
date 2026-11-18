@@ -9,10 +9,10 @@ size = Vector2(16, 16.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_giqkd"]
 size = Vector2(16, 16)
 
-[node name="Esgoto" type="Node2D" unique_id=2031049544]
+[node name="Esgoto" type="Node2D" unique_id=2031049544 groups=["interagiveis"]]
 script = ExtResource("1_k88w3")
 
-[node name="Cano1" type="Area2D" parent="." unique_id=1169025703]
+[node name="Cano1" type="Area2D" parent="." unique_id=1169025703 groups=["interagiveis"]]
 z_index = -1
 position = Vector2(-23, -5)
 collision_mask = 2
@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_ha50l")
 [node name="SpawnCano1" type="Marker2D" parent="Cano1" unique_id=1108408194]
 position = Vector2(-24, 25)
 
-[node name="Cano2" type="Area2D" parent="." unique_id=57264726]
+[node name="Cano2" type="Area2D" parent="." unique_id=57264726 groups=["interagiveis"]]
 z_index = -1
 position = Vector2(-23, -4)
 collision_mask = 2

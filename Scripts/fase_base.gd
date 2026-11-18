@@ -4,6 +4,7 @@ extends Node2D
 # Base de todas as fases: troca entre Gato e Rato.
 @onready var gato = $Gato
 @onready var rato = $Rato
+@onready var botao_reiniciar = $CanvasLayer/BotaoReiniciar
 
 var camera_personagens = {
 	"Gato": 1,
@@ -21,6 +22,7 @@ func _ready():
 	# Roda a física da fase depois da dos personagens, para o Rato não ficar um frame atrasado
 	process_physics_priority = 1
 	atualizar_personagem_ativo()
+	botao_reiniciar.pressed.connect(_on_botao_reiniciar_pressed)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("colar"):
@@ -105,3 +107,6 @@ func registrar_camera(body, numero: int):
 
 	if body.is_active:
 		trocar_camera(numero)
+
+func _on_botao_reiniciar_pressed():
+	get_tree().current_scene.reiniciar_fase()
