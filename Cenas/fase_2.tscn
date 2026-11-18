@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bg3vgljpjdpvl" path="res://Sprites/Sewers/Sewers/16x16/tiles/tiles_toxic.png" id="12_auht4"]
 [ext_resource type="AudioStream" uid="uid://ct5mwywskbasn" path="res://SFX/Agua_splash.wav" id="13_csihj"]
 [ext_resource type="Script" uid="uid://dwb7ej2kj47yj" path="res://Scripts/area_medo_rato.gd" id="16_wno4v"]
+[ext_resource type="Texture2D" uid="uid://cp21sc4tyjpce" path="res://Sprites/background_2.jpg" id="17_bg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hfxx3"]
 texture = ExtResource("4_wno4v")
@@ -291,6 +292,11 @@ size = Vector2(403, 176)
 [node name="Fase2" type="Node2D" unique_id=818607348]
 script = ExtResource("1_c1qc7")
 
+[node name="Background" type="Sprite2D" parent="." unique_id=1982736452]
+z_index = -10
+scale = Vector2(0.41860464, 0.421875)
+texture = ExtResource("17_bg2")
+
 [node name="Gato" parent="." unique_id=1899064660 instance=ExtResource("1_6odrp")]
 position = Vector2(-543, 226)
 
@@ -304,7 +310,7 @@ tile_set = SubResource("TileSet_0v05o")
 
 [node name="AreaAgua" type="Area2D" parent="." unique_id=1332157265]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 6
 script = ExtResource("6_ueqr2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAgua" unique_id=47621924]

@@ -25,6 +25,15 @@ func ativar_alavanca():
 	if ativada:
 		return
 	ativada = true
+	tocar_som_personagem()
 	alavanca_ativada.emit()
 	$AnimatedSprite2D.play("alavancaAtivar")
 	$AudioStreamPlayer.playing = true
+
+func tocar_som_personagem():
+	for personagem in personagens_perto:
+		if personagem.is_active:
+			personagem.tocar_som()
+			return
+	if personagens_perto.size() > 0:
+		personagens_perto[0].tocar_som()

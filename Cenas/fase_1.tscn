@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cueb011q1yfji" path="res://Cenas/cerca.tscn" id="8_k6662"]
 [ext_resource type="PackedScene" uid="uid://d22k5xg8ef3jo" path="res://Cenas/botão.tscn" id="9_65ygv"]
 [ext_resource type="AudioStream" uid="uid://8531hw2vexts" path="res://SFX/som_portao.wav" id="10_e3ho8"]
+[ext_resource type="Texture2D" uid="uid://cp21sc4tyjpce" path="res://Sprites/background_2.jpg" id="11_bg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i08y3"]
 texture = ExtResource("2_wddeb")
@@ -131,6 +132,12 @@ sources/3 = SubResource("TileSetAtlasSource_hhpk5")
 
 [node name="Fase1" type="Node2D" unique_id=1019764990]
 script = ExtResource("1_00j4k")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1982736451]
+z_index = -10
+position = Vector2(16, 0)
+scale = Vector2(0.41860464, 0.421875)
+texture = ExtResource("11_bg2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=563031787]
 position = Vector2(16, 7)

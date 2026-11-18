@@ -21,6 +21,24 @@ func _ready():
 	linhas_agua.sort()
 	linhas_agua.reverse()
 
+func _physics_process(_delta):
+	super(_delta)
+	verificar_barreira_gato()
+
+func verificar_barreira_gato():
+	var colisao_barreira = barreira_gato.get_node_or_null("CollisionShape2D")
+	if colisao_barreira == null or colisao_barreira.disabled:
+		if gato.proximo_da_agua:
+			gato.proximo_da_agua = false
+			gato.atualizar_icone_medo()
+		return
+	var tamanho = colisao_barreira.shape.size * colisao_barreira.global_scale
+	var ret_barreira = Rect2(colisao_barreira.global_position - tamanho / 2.0, tamanho).grow_individual(12.0, 0.0, 12.0, 0.0)
+	var perto = ret_barreira.intersects(gato.retangulo_colisao())
+	if perto != gato.proximo_da_agua:
+		gato.proximo_da_agua = perto
+		gato.atualizar_icone_medo()
+
 func _on_placa_pressionada():
 	agua_deve_ficar_vazia = true
 	processar_agua()

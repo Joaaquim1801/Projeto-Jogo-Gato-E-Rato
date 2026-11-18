@@ -45,4 +45,5 @@ func _on_cano2_body_exited(body):
 func teleportar_rato(rato, destino):
 	rato.global_position = destino
 	rato.velocity = Vector2.ZERO
+	rato.tocar_som()
 	print("Rato teleportado!")

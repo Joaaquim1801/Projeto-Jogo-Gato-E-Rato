@@ -16,6 +16,11 @@ var esta_morrendo = false
 var colado = false
 
 @onready var animacao = $AnimatedSprite2D
+@onready var som = $Som
+
+func tocar_som():
+	if som:
+		som.play()
 
 func _physics_process(delta: float) -> void:
 	if esta_morrendo:

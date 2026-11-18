@@ -53,6 +53,8 @@ func colar_rato():
 	var distancia = gato.retangulo_colisao().get_center().distance_to(rato.retangulo_colisao().get_center())
 	if distancia > DISTANCIA_COLAR:
 		return
+	var personagem_interagindo = gato if gato_esta_ativo else rato
+	personagem_interagindo.tocar_som()
 	rato_colado = true
 	rato.colado = true
 	# Evita que o corpo do Rato empurre o Gato (e vice-versa)
@@ -61,9 +63,11 @@ func colar_rato():
 	gato_esta_ativo = true
 	atualizar_personagem_ativo()
 	posicionar_rato_no_gato()
+	rato.atualizar_estado_escuro()
 	rato.atualizar_icone_medo()
 
 func descolar_rato():
+	rato.tocar_som()
 	rato_colado = false
 	rato.colado = false
 	gato.remove_collision_exception_with(rato)

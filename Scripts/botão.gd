@@ -26,6 +26,15 @@ func ativar_botao():
 	if get_tree().current_scene.numero_fase != 5 and ativado:
 		return
 	ativado = true
+	tocar_som_personagem()
 	botao_ativado.emit()
 	$AnimatedSprite2D.play("ativarBotao")
 	$AudioStreamPlayer.playing = true
+
+func tocar_som_personagem():
+	for personagem in personagens_perto:
+		if personagem.is_active:
+			personagem.tocar_som()
+			return
+	if personagens_perto.size() > 0:
+		personagens_perto[0].tocar_som()

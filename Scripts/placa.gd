@@ -20,6 +20,7 @@ func _on_body_entered(body):
 	personagens_em_cima.append(body)
 	
 	if personagens_em_cima.size() == 1:
+		body.tocar_som()
 		pressionada.emit()
 
 

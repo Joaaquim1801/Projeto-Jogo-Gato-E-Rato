@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dx8521rgl0yih" path="res://Cenas/alavanca.tscn" id="13_exsaq"]
 [ext_resource type="AudioStream" uid="uid://8531hw2vexts" path="res://SFX/som_portao.wav" id="14_exsaq"]
 [ext_resource type="PackedScene" uid="uid://bxy1u2hoxg20n" path="res://Cenas/proxima_fase.tscn" id="15_k3u8m"]
+[ext_resource type="Texture2D" uid="uid://5lybou013bnb" path="res://Sprites/background_1.jpg" id="16_bg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pji7o"]
 texture = ExtResource("2_l3p2n")
@@ -319,6 +320,18 @@ size = Vector2(1648, 648)
 
 [node name="Fase6" type="Node2D" unique_id=1058099912]
 script = ExtResource("1_486o8")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1982736458]
+z_index = -10
+position = Vector2(289, -92)
+scale = Vector2(0.5988372, 0.421875)
+texture = ExtResource("16_bg1")
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=1982736459]
+z_index = -10
+position = Vector2(290, -720)
+scale = Vector2(0.5988372, 0.421875)
+texture = ExtResource("16_bg1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1480263649]
 position = Vector2(-1, 6)
